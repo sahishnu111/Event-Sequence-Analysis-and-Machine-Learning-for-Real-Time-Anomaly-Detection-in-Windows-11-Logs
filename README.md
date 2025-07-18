@@ -1,2 +1,161 @@
 # Event-Sequence-Analysis-and-Machine-Learning-for-Real-Time-Anomaly-Detection-in-Windows-11-Logs
-This project introduces a hybrid system for real-time anomaly detection in Windows 11 logs. By converting logs into unique event sequences using machine learning and the MITRE ATT&amp;CK framework, it accurately identifies malicious threats, offering robust cybersecurity for modern operating systems.
+
+![Cybersecurity](https://img.shields.io/badge/cybersecurity-anomaly%20detection-blue)
+![Python](https://img.shields.io/badge/Python-3.x-blueviolet)
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+---
+
+## 📝 Description
+
+This repository contains the code and resources for the research project on **real-time anomaly detection in Windows 11 event logs**. This project introduces a novel hybrid system that combines classic Machine Learning (ML) approaches with event sequence analysis to identify malicious activities that often go unnoticed by traditional security systems. By converting log entries into unique event sequences, our system can learn the normal behavior of a system and detect deviations in real-time with high accuracy.
+
+This research was conducted at the **Indian Institute of Information Technology, Dhanbad**.
+
+
+
+
+
+
+
+---
+
+## 📜 Project Description 
+
+### Introduction: The Challenge of Modern Cyber Threats
+
+In today's digital landscape, the volume and complexity of system-generated data, such as Windows event logs, are expanding at an unprecedented rate. While these logs are rich with information, their sheer size makes manual analysis impractical and allows sophisticated cyber threats to remain hidden. Traditional security solutions, like signature-based antivirus software, are often reactive and struggle to detect novel or "low-and-slow" attacks. These stealthy threats are designed to mimic normal user behavior, bypassing conventional security measures and creating significant vulnerabilities. This project addresses the critical need for an advanced, proactive, and context-aware security system capable of identifying such elusive threats in real-time.
+
+### Motivation: Limitations of Existing Approaches
+
+The primary motivation for this research stems from the inherent limitations of conventional anomaly detection systems. Many existing solutions rely on statistical models that treat log events as independent data points. This approach has two major drawbacks:
+
+1.  **High False Positives:** It often misclassifies rare but legitimate system events as malicious, leading to alert fatigue.
+2.  **High False Negatives:** It frequently fails to identify coordinated, multi-step attacks that appear as normal behavior when viewed in isolation.
+
+This project moves beyond simple statistical analysis to a more holistic, behavioral approach. By focusing on the *sequence* and *timing* of events, we can build a model of normal system behavior and more accurately identify true anomalies that indicate malicious intent.
+
+### Proposed System: A Hybrid Approach to Anomaly Detection
+
+This research introduces a novel hybrid system for **real-time anomaly detection in Windows 11 event logs**. Our methodology is built on a foundation of event sequence analysis and machine learning, designed to understand the context and evolution of system activities over time.
+
+The core workflow of our system is as follows:
+
+1.  **Log Ingestion & Parsing:** System logs are collected from Windows 11 machines using custom PowerShell scripts. These raw logs are then parsed to extract critical information, such as event IDs, timestamps, and process names.
+2.  **Event-to-Sequence Conversion:** The parsed log entries are transformed into unique **event sequences**. Each sequence represents a chain of related activities, providing a narrative of system operations rather than a collection of isolated events.
+3.  **Machine Learning Model Training:** We employ machine learning algorithms to train a model on a vast dataset of normal event sequences. This process allows the model to learn the intricate patterns of legitimate system behavior.
+4.  **Real-Time Anomaly Scoring:** Once trained, the model analyzes new event sequences in real-time. It assigns an "anomaly score" to each sequence based on its deviation from the learned normal behavior.
+5.  **Threat Identification with MITRE ATT&CK:** To provide actionable intelligence, detected anomalies are mapped to the **MITRE ATT&CK framework**. This helps in understanding the adversary's potential tactics and techniques (e.g., Credential Access, Lateral Movement) and facilitates a more effective incident response.
+
+### Dataset and Experimental Setup
+
+The robustness of our model is backed by a comprehensive dataset collected for this project:
+
+* **Normal Dataset:** Comprises over **100,000 log entries** captured from a clean Windows 11 environment, representing a wide range of normal user and system activities.
+* **Malware Dataset:** Contains over **4,200 log entries** generated by executing a variety of malware samples in a controlled sandbox environment.
+
+This extensive dataset ensures that our model is well-equipped to distinguish between benign and malicious activities with a high degree of accuracy.
+
+### Conclusion and Impact
+
+The experimental results demonstrate the effectiveness of our hybrid system in detecting malicious behavior that evades traditional security measures. By analyzing the contextual sequence of events, our approach significantly reduces false positives and provides a more accurate and reliable method for real-time threat detection. This research contributes a powerful and practical solution for enhancing the cybersecurity posture of modern operating systems, offering a crucial layer of defense against the evolving landscape of cyber threats.
+
+
+
+
+
+---
+
+## ✨ Key Features
+
+* **Hybrid Approach:** Combines machine learning and event sequence analysis for robust anomaly detection.
+* **Real-Time Detection:** Designed to identify threats as they happen.
+* **Behavioral Analysis:** Focuses on the sequence and timing of events, not just isolated data points.
+* **MITRE ATT&CK Framework:** Integrates a structured understanding of adversary tactics and techniques.
+* **Comprehensive Dataset:** Trained and evaluated on a large dataset of over 100,000 normal log entries and more than 4,200 malware logs.
+
+---
+
+## 🔧 Methodology
+
+The core of this project lies in its methodology, which can be broken down into the following steps:
+
+1.  **Data Collection:** Windows 11 event logs were collected using PowerShell scripts to capture a wide range of system activities.
+2.  **Event Sequence Conversion:** Log entries are converted into unique event sequences, which represent a timeline of actions on the system.
+3.  **Model Training:** A machine learning model is trained on the dataset of normal and malicious event sequences to learn the patterns of normal system behavior.
+4.  **Anomaly Detection:** The trained model is used to analyze new event sequences in real-time and flag any deviations from the learned normal behavior as potential anomalies.
+5.  **Evaluation:** The system's performance is evaluated based on its accuracy in distinguishing between benign and malicious activities.
+
+---
+
+## 📊 Dataset
+
+The dataset used in this project consists of two main components:
+
+* **Normal Logs:** Over 100,000 log entries from a clean Windows 11 system, representing normal system behavior.
+* **Malware Logs:** More than 4,200 log entries generated by executing various malware samples in a controlled environment.
+
+This balanced and comprehensive dataset is crucial for training a robust and accurate detection model.
+
+---
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+* Python 3.x
+* Jupyter Notebook or JupyterLab
+* Required Python libraries (you can find these in a `requirements.txt` file if you create one, or install them as needed from the notebook). A good starting point would be:
+    ```sh
+    pip install pandas numpy scikit-learn matplotlib seaborn
+    ```
+
+### Installation & Usage
+
+1.  **Clone the repo**
+    ```sh
+    git clone [https://github.com/your_username/your_project_repository.git](https://github.com/your_username/your_project_repository.git)
+    ```
+2.  **Navigate to the project directory**
+    ```sh
+    cd your_project_repository
+    ```
+3.  **Start Jupyter Notebook**
+    ```sh
+    jupyter notebook
+    ```
+4.  **Open the `windowsLogAnalysisEDA.ipynb` file and run the cells.**
+
+---
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for more information.
+
+*You can choose a different license if you prefer. Other popular options for academic projects include the **GNU General Public License v3 (GPLv3)** or the **Apache License 2.0**.*
+
+---
+
+## 🙏 Acknowledgments
+
+- This research was conducted at the **Indian Institute of Technology (Indian School of Mines), Dhanbad** under the guidance of [Dr. Nikhil Tripathi (CSE Department)](https://nikhiliiti.github.io/).
+- The project was developed using open-source tools, and we aim to make this project fully open-source.
+- A special thanks to all the professors and mentors who provided their guidance and support throughout this project.
+
